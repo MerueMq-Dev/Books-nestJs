@@ -7,7 +7,7 @@ import { BookModule } from './book/book.module';
 import { AuthModule } from './auth/auth.module';
 import { BullModule } from '@nestjs/bull';
 import { MongooseModule } from '@nestjs/mongoose';
-import { UserModule } from './user/user.module';
+
 
 @Module({
   imports: [ConfigModule.forRoot(),
@@ -26,7 +26,6 @@ import { UserModule } from './user/user.module';
         port: 6379,
       }
     }),
-    UserModule,
     // TypegooseModule.forRootAsync({
     //   imports: [ConfigModule],
     //   inject: [ConfigService],

@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
-import { User } from './user.model';
+import { User } from '../user.model';
 import { InjectModel } from '@nestjs/mongoose';
 import { genSalt, hash } from 'bcryptjs';
-import { CreateUserDto } from './dto/create-user.dto';
+import { AuthDto } from '../dto/auth.dto';
 
 @Injectable()
 export class UserService {
 	constructor(@InjectModel(User.name) private userModel: Model<User>){}
 
-	async create(dto: CreateUserDto) {
+	async create(dto: AuthDto) {
 		const salt = await genSalt(10);
 
 		const data = {
